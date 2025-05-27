@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "AvenirNextLTPro";
+  src: url("../assets/fonts/Avenir Next LT Pro Regular.otf"), url("../assets/fonts/Avenir Next LT Pro Bold.otf") format("opentype");
+}
+body {
+  background-color: rgba(84, 95, 125, 0.1490196078);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.login-page {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font-family: "AvenirNextLTPro", sans-serif;
+}
+.login-page .login-image-container {
+  height: 100dvh;
+  padding: 4rem;
+  background-color: rgba(255, 255, 255, 0.1803921569);
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-page .login-image-container img {
+  display: block;
+}
+.login-page .login-image-container .logo-container {
+  position: absolute;
+  top: 70px;
+}
+.login-page .login-form-container {
+  width: 45%;
+  padding: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  line-height: 2.5rem;
+  height: 100dvh;
+}
+.login-page .login-form-container .login-form {
+  height: 100%;
+}
+.login-page .login-form-container .login-form .login-form-header {
+  margin-bottom: 2rem;
+}
+.login-page .login-form-container .login-form h1 {
+  color: #213f7d;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: -4%;
+}
+.login-page .login-form-container .login-form p {
+  color: #545f7d;
+}
+.login-page .login-form-container .login-form input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding-left: 1rem;
+  border-radius: 5px;
+  border: 1px solid #545f7d;
+  outline: none;
+}
+.login-page .login-form-container .login-form label {
+  display: block;
+  margin-top: 1.5rem;
+  position: relative;
+}
+.login-page .login-form-container .login-form input::-moz-placeholder {
+  color: #545f7d;
+}
+.login-page .login-form-container .login-form input::placeholder {
+  color: #545f7d;
+}
+.login-page .login-form-container .login-form .forgot-password {
+  text-decoration: none;
+  color: #39cdcc;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 10%;
+  font-size: 12px;
+}
+.login-page .login-form-container .login-form .forgot-password:hover {
+  color: #36b8b0;
+}
+.login-page .login-form-container .login-form .showpassword {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  color: #39cdcc;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.login-page .login-form-container .login-form .showpassword:hover {
+  color: #36b8b0;
+}
+.login-page .login-form-container .login-form button {
+  width: 100%;
+  height: 48px;
+  text-transform: uppercase;
+  background-color: #39cdcc;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+.login-page .login-form-container .login-form button:hover {
+  background-color: #36b8b0;
+}
+
+@media (max-width: 1200px) {
+  .login-page {
+    flex-direction: column;
+  }
+  .login-page .login-image-container {
+    width: 100%;
+    height: 100vh;
+    padding: 2rem;
+  }
+  .login-page .login-image-container img {
+    width: 100%;
+  }
+  .login-page .login-image-container .login-image-container {
+    display: block;
+  }
+  .login-page .login-image-container .logo-container {
+    position: static;
+  }
+  .login-page .login-form-container {
+    height: 50vh;
+    width: 100%;
+    padding: 2rem;
+  }
+}/*# sourceMappingURL=global.css.map */

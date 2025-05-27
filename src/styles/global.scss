@@ -1,0 +1,166 @@
+// Universal styles for the application
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "AvenirNextLTPro";
+  src: url("../assets/fonts/Avenir\ Next\ LT\ Pro\ Regular.otf"),
+    url("../assets/fonts/Avenir\ Next\ LT\ Pro\ Bold.otf") format("opentype");
+}
+// Body styles
+body {
+  background-color: #545f7d26;
+  // color: #333;
+  line-height: 1.6;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// login page styles
+.login-page {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font-family: "AvenirNextLTPro", sans-serif;
+  .login-image-container {
+    height: 100dvh;
+    padding: 4rem;
+    background-color: #ffffff2e; // Semi-transparent background
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // Images in the login image container
+    img {
+      display: block;
+    }
+
+    .logo-container {
+      position: absolute;
+      top: 70px;
+    }
+  }
+
+  .login-form-container {
+    width: 45%;
+    padding: 9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    line-height: 2.5rem;
+    height: 100dvh;
+
+    .login-form {
+      height: 100%;
+      .login-form-header {
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        color: #213f7d;
+        font-weight: 700;
+        font-size: 40px;
+        letter-spacing: -4%;
+      }
+      p {
+        color: #545f7d;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        height: 50px;
+        padding-left: 1rem;
+        border-radius: 5px;
+        border: 1px solid #545f7d;
+        outline: none;
+      }
+      label {
+        display: block;
+        margin-top: 1.5rem;
+        position: relative;
+      }
+      input::placeholder {
+        color: #545f7d;
+      }
+
+      .forgot-password {
+        text-decoration: none;
+        color: #39cdcc;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 10%;
+        font-size: 12px;
+      }
+      .forgot-password:hover {
+        color: #36b8b0;
+      }
+
+      .showpassword {
+        position: absolute;
+        bottom: 10%;
+        right: 5%;
+        // display: inline-block;
+        color: #39cdcc;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 10%;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      .showpassword:hover {
+        color: #36b8b0;
+      }
+
+      button {
+        width: 100%;
+        height: 48px;
+        text-transform: uppercase;
+        background-color: #39cdcc;
+        color: #fff;
+        border-radius: 8px;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 2rem;
+      }
+      button:hover {
+        background-color: #36b8b0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .login-page {
+    flex-direction: column;
+    .login-image-container {
+      width: 100%;
+      height: 100vh;
+      padding: 2rem;
+      img {
+        width: 100%;
+      }
+      .login-image-container {
+        display: block;
+      }
+      .logo-container {
+        position: static;
+      }
+    }
+    .login-form-container {
+      height: 50vh;
+      width: 100%;
+      padding: 2rem;
+    }
+  }
+}
