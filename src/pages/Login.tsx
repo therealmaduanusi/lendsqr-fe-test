@@ -3,7 +3,7 @@ import loginImage from "../assets/login.png";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-function Login() {
+function Login({ login, onChange, onSubmit }) {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   // Function to toggle the visibility of the password
   // This function is called when the "Show" span is clicked
@@ -27,12 +27,21 @@ function Login() {
             <h1>Welcome!</h1>
             <p>Enter details to login.</p>
           </div>
-          <input type="email" name="email" placeholder="Email" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={login.email}
+            onChange={(event) => onChange(event)}
+            required
+          />
           <label>
             <input
               type={`${showPassword ? "text" : "password"}`}
               name="password"
               placeholder="Password"
+              value={login.password}
+              onChange={(event) => onChange(event)}
               required
             />
             <span className="showpassword" onClick={toggleShowPassword}>
@@ -42,7 +51,7 @@ function Login() {
           <Link to="/" className="forgot-password">
             Forgot Password?
           </Link>
-          <button type="submit">Log in</button>
+          <button onClick={(event) => onSubmit(event)} type="submit">Log in</button>
         </form>
       </div>
     </section>
