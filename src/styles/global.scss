@@ -291,7 +291,7 @@ img {
       font-weight: 500;
       font-size: 12px;
       letter-spacing: 0px;
-      color: #545F7D;
+      color: #545f7d;
       margin: 10px 0;
     }
     .navigation-customers {
@@ -303,23 +303,23 @@ img {
   }
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /// User styles
 .users-container {
   font-family: "Work Sans", sans-serif;
   padding: 60px 30px;
 
-  .users-header{
+  .users-header {
     font-weight: 500;
     font-size: 24px;
     line-height: 100%;
     letter-spacing: 0px;
     margin-bottom: 50px;
-    color: #213F7D;
+    color: #213f7d;
   }
   .userscard-container {
     display: flex;
+    justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
   }
@@ -327,26 +327,25 @@ img {
   .user-card {
     background-color: #fff;
     border-radius: 4px;
-    border: 1px solid #213F7D0F;
+    border: 1px solid #213f7d0f;
     text-transform: uppercase;
     width: 240px;
     height: 160px;
     padding: 20px;
-  
+
     p {
-      color: #545F7D;
+      color: #545f7d;
       font-weight: 500;
       font-size: 14px;
       margin: 10px 0;
     }
-  
+
     span {
-      color: #213F7D;
+      color: #213f7d;
       font-weight: 600;
       font-size: 24px;
       line-height: 100%;
     }
-  
   }
 
   .user-details {
@@ -368,7 +367,7 @@ img {
   width: 48px;
   height: 48px;
   border: 5px solid rgba(0, 0, 0, 0.1);
-  border-top-color: #39CDCC;
+  border-top-color: #39cdcc;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -376,5 +375,128 @@ img {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Table styles
+.user-table-container {
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #e1e1e1, 0 8px 16px rgba(0, 0, 0, 0.05);
+  width: 100%; // fixed width for the table container
+  overflow-x: auto;
+  @media (max-width: 1200px) {
+    width: 500px; // responsive width for smaller screens
+  }
+  .user-table {
+    table-layout: fixed; // forces equal-width columns
+    border-collapse: collapse;
+    text-align: left;
+    font-family: "Work Sans", sans-serif;
+    font-size: 14px;
+    color: #545f7d;
+
+    th,
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #213f7d1a;
+      width: calc(100% / 7);
+      word-wrap: break-word; // ensures long text wraps within the cell
+    }
+
+    th {
+      font-weight: 600;
+      color: #545f7d;
+      text-transform: uppercase;
+      font-size: 12px;
+      .header-with-icon {
+        font-size: 12px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        img {
+          width: 16px;
+          height: 10.67px;
+        }
+      }
+    }
+
+    tbody tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-weight: 500;
+      text-transform: capitalize;
+      font-size: 13px;
+
+      &.active {
+        background-color: #f3fff3;
+        color: #39cd62;
+      }
+
+      &.inactive {
+        background-color: #f5f5f5;
+        color: #545f7d;
+      }
+
+      &.pending {
+        background-color: #fff5e5;
+        color: #e9b200;
+      }
+
+      &.blacklisted {
+        background-color: #ffe5e5;
+        color: #e4033b;
+      }
+    }
+  }
+}
+
+// pagination styles
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  color: #545f7d;
+
+  .select-container {
+    display: flex;
+    gap: 10px;
+    select {
+      outline: none;
+      background-color: #213f7d1a;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      color: #213f7d;
+      font-weight: 500;
+      font-family: "Work Sans", sans-serif;
+      cursor: pointer;
+    }
+  }
+  .pagination-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    button {
+      background-color: #213f7d1a;
+      border: none;
+      border-radius: 4px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      font-family: "Work Sans", sans-serif;
+    }
+    span {
+      display: inline-block;
+      cursor: pointer;
+    }
   }
 }
