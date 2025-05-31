@@ -3,12 +3,12 @@ import Header from "../components/Header"
 import Navigation from "../components/Navigation"
 // import Users from "../components/Users.tsx"
 
-function DashBoard() {
+function DashBoard({onShowDashboard}: { onShowDashboard: (show: boolean) => void }) {
   return (
     <>
       <Header />
       <section style={{ display: "flex", position: 'relative' }}>
-        <Navigation />
+        <Navigation onShowDashboard={onShowDashboard} />
         <Outlet />
       </section>
     </>

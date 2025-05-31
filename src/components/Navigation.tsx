@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import briefcase from "../assets/briefcase1.svg";
 import homeImage from "../assets/home1.svg";
+import logoutImage from "../assets/sign-out.svg";
 import { useState } from "react";
 
 // This component renders the navigation sidebar for the application
@@ -32,16 +33,16 @@ const settingsLists: { id: number; name: string; img: string }[] = [
   { id: 4, name: "Systems Messages", img: "/images/systems_messages.svg" },
 ];
 
-function Navigation() {
-  const [ showNavigation, setShowNavigation ] = useState(false)
+function Navigation({onShowDashboard}: { onShowDashboard: (show: boolean) => void }) {
+  const [showNavigation, setShowNavigation] = useState(false);
   return (
     <>
-      <div onClick={() => setShowNavigation(prev => !prev)} className="menu">
+      <div onClick={() => setShowNavigation((prev) => !prev)} className="menu">
         <div></div>
         <div></div>
         <div></div>
       </div>
-      <nav className={`navigation ${showNavigation ? 'show' : 'hide'}`}>
+      <nav className={`navigation ${showNavigation ? "show" : "hide"}`}>
         <ul className="navigation-list">
           <li className="navigation-select">
             <img src={briefcase} alt="Select Organization" />
@@ -71,6 +72,16 @@ function Navigation() {
             <SettingsLists key={customer.id} {...customer} />
           ))}
         </ul>
+
+        <div className="navigation-footer">
+          <div>
+            <Link onClick={() => onShowDashboard(false)} to="/">
+              <img src={logoutImage} alt="logout" />
+              Logout
+            </Link>
+          </div>
+          <p>v1.2.0</p>
+        </div>
       </nav>
     </>
   );
@@ -86,7 +97,7 @@ const CustomersLists = ({ img, name }: CustomersListsProps) => {
   return (
     <li className="navigation-customers">
       <img src={img} alt={name} />
-      <NavLink to={name}>
+      <NavLink to={name.split(" ").join("").toLocaleLowerCase()}>
         <span>{name}</span>
       </NavLink>
     </li>

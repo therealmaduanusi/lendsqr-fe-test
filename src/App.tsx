@@ -50,9 +50,9 @@ function App() {
     <>
       {showDashboard ? (
         <Routes>
-          <Route path="/" element={<DashBoard />}>
+          <Route path="/" element={<DashBoard onShowDashboard={setShowDashboard} />}>
             <Route index element={<p style={{textAlign: 'center', width: '70%', alignSelf: 'center'}}>Hello</p>}></Route>
-            <Route path="/User" element={<PersonalDetails />}>
+            <Route path="/user" element={<PersonalDetails />}>
               <Route index element={<UserInfo />}></Route>
               <Route path="general" element={<UserInfo />}></Route>
               <Route path="document" element={<p>No Data in 'Document'</p>}></Route>
@@ -61,13 +61,13 @@ function App() {
               <Route path="savings" element={<p>No Data in 'Savings'</p>}></Route>
               <Route path="app" element={<p>No Data in 'App and System'</p>}></Route>
             </Route>
-            <Route path="/Guarantors" element={<Users />}></Route>
-            <Route path="/Loans" element={<p>Loan No Data found</p>}></Route>
-            <Route path="/Decision Models" element={<p>Decision Models No Data Found</p>}></Route>
-            <Route path="/Savings" element={<p>No Data Found</p>}></Route>
-            <Route path="/Loan Request" element={<p>Decision Models No Data Found</p>}></Route>
-            <Route path="/Whitelist" element={<p>Whitelist No Data Found</p>}></Route>
-            <Route path="/Karma" element={<p>Karma No Data Found</p>}></Route>
+            <Route path="/guarantors" element={<Users />}></Route>
+            <Route path="/loans" element={<p>Loan No Data found</p>}></Route>
+            <Route path="/decisionModels" element={<p>Decision Models No Data Found</p>}></Route>
+            <Route path="/savings" element={<p>No Data Found</p>}></Route>
+            <Route path="/loanrequests" element={<p>Decision Models No Data Found</p>}></Route>
+            <Route path="/whitelist" element={<p>Whitelist No Data Found</p>}></Route>
+            <Route path="/karma" element={<p>Karma No Data Found</p>}></Route>
           </Route>
         </Routes>
       ) : (

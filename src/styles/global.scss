@@ -284,6 +284,10 @@ body {
   background-color: #ffffffba;
   font-family: "Work Sans", sans-serif;
   width: 20%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   @media (max-width: 1200px) {
     padding-top: 40px;
     // padding-right: 20px;
@@ -352,6 +356,24 @@ body {
     .navigation-customers:has(.active) {
       border-left: 3px solid #39cdcc;
       background-color: rgba(55, 205, 205, 0.147);
+    }
+  }
+  .navigation-footer {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #213F7D;
+    border-top: 1px solid #21407d1d;
+    div  a{
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      width: 80px;
+      gap: 10px;
+      cursor: pointer;
     }
   }
 }
