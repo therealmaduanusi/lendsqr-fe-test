@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import avatar2 from '../assets/avatar2.svg'
 import star1 from '../assets/star1.svg'

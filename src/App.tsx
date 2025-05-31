@@ -32,7 +32,9 @@ function App() {
     setLogin((prev: LoginState) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
+  function handleSubmit(
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
+  ): void {
     e.preventDefault();
     // Handle form submission logic here
     if (login.email === "" || login.password === "") {
@@ -40,7 +42,7 @@ function App() {
       return;
     }
     if (login.email.length > 0 && login.password.length > 0) {
-      console.log("Form submitted with:", login);
+      // console.log("Form submitted with:", login);
       setShowDashboard(true);
     }
   }

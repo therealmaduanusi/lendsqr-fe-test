@@ -3,7 +3,13 @@ import loginImage from "../assets/login.png";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-function Login({ login, onChange, onSubmit }) {
+interface LoginProps {
+  login: { email: string; password: string };
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+function Login({ login, onChange, onSubmit }: LoginProps) {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   // Function to toggle the visibility of the password
   // This function is called when the "Show" span is clicked

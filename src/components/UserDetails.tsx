@@ -7,11 +7,23 @@ import viewDetailsIcon from "../assets/viewdetails.svg";
 import blacklistUserIcon from "../assets/blacklistuser.svg";
 import activateUserIcon from "../assets/activateuser.svg";
 import Loader from "./Loader.tsx";
+import FilterForm from "./FilterForm.tsx";
+
+type UserDetails = {
+  id: number;
+  organization: string;
+  username: string;
+  email: string;
+  phone: string;
+  date: string;
+  status: string;
+};
+
 function UsersDetails() {
   const [usersDetails, setUsersDetails] = useState<object | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [storedUsersDetails, setStoredUsersDetails] = useState<object | null>(
-    null
+  const [storedUsersDetails, setStoredUsersDetails] = useState<UserDetails[]>(
+    []
   );
 
   localStorage.setItem("usersDetails", JSON.stringify(usersDetails));
@@ -39,9 +51,6 @@ function UsersDetails() {
             "Total:",
             total
           );
-          // } else {
-          //   console.log("No user details found in localStorage");
-          // }
           setLoading(false);
         }, 2000);
       } catch (error) {
@@ -65,84 +74,52 @@ function UsersDetails() {
   );
 }
 
-type UserDetails = {
-  id: number;
-  organization: string;
-  username: string;
-  email: string;
-  phone: string;
-  date: string;
-  status: string;
-};
-const UserTable = ({ storedUsersDetails }: { storedUsersDetails: [] }) => {
+const UserTable = ({
+  storedUsersDetails,
+}: {
+  storedUsersDetails: UserDetails[];
+}) => {
   const [showUserDetailMenu, setShowUserDetailMenu] = useState<number | null>(
     null
   );
+  const [showFilterForm, setShowFilterForm] = useState<boolean>(false);
+  const headerArray = [
+    "Organization",
+    "Username",
+    "Email",
+    "Phone Number",
+    "Date Joined",
+    "Status",
+  ];
   return (
     <>
       <div className="user-table-container">
         <table className="user-table">
           <thead>
             <tr>
-              <th>
-                <div className="header-with-icon">
-                  Organization
-                  <span>
-                    <img src={filterImage} alt="filter" />
-                  </span>
-                </div>
-              </th>
-              <th>
-                <div className="header-with-icon">
-                  Username
-                  <span>
-                    <img src={filterImage} alt="filter" />
-                  </span>
-                </div>
-              </th>
-              <th>
-                <div className="header-with-icon">
-                  Email
-                  <span>
-                    <img src={filterImage} alt="filter" />
-                  </span>
-                </div>
-              </th>
-              <th>
-                <div className="header-with-icon">
-                  <span>Phone Number</span>
-                  <span>
-                    <img src={filterImage} alt="filter" />
-                  </span>
-                </div>
-              </th>
-              <th>
-                <div className="header-with-icon">
-                  Date Joined
-                  <span>
-                    <img src={filterImage} alt="filter" />
-                  </span>
-                </div>
-              </th>
-              <th>
-                <div className="header-with-icon">
-                  Status
-                  <span>
-                    <img src={filterImage} alt="filter" />
-                  </span>
-                </div>
-              </th>
-              <th></th> {/* For the dots */}
+              {headerArray.map((head) => (
+                <th key={head}>
+                  <div onClick={() => setShowFilterForm((prev) => !prev)} className="header-with-icon">
+                    {head}
+                    <span>
+                      <img src={filterImage} alt="filter" />
+                    </span>
+                  </div>
+                </th>
+              ))}
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {storedUsersDetails.slice(0, 9).map((user: UserDetails) => (
               <Tablerow
+                key={user.id}
                 user={user}
                 showUserDetailMenu={showUserDetailMenu}
                 onSetShowUserDetailMenu={setShowUserDetailMenu}
               />
             ))}
+            {showFilterForm && <FilterForm />}
           </tbody>
         </table>
       </div>
@@ -180,7 +157,7 @@ const Tablerow = ({
 }: {
   user: UserDetails;
   showUserDetailMenu: number | null;
-  onSetShowUserDetailMenu: () => void;
+  onSetShowUserDetailMenu: (id: number | null) => void;
 }) => {
   console.log(user);
   const formatDate = (isoDate: string): string => {

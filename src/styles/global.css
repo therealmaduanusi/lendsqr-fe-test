@@ -321,7 +321,7 @@ body {
   font-size: 16px;
 }
 .navigation .navigation-list .navigation-customers:has(.active) {
-  border-left: 3px solid #39CDCC;
+  border-left: 3px solid #39cdcc;
   background-color: rgba(55, 205, 205, 0.147);
 }
 
@@ -422,6 +422,7 @@ body {
   font-family: "Work Sans", sans-serif;
   font-size: 14px;
   color: #545f7d;
+  position: relative;
 }
 .user-table-container .user-table th,
 .user-table-container .user-table td {
@@ -445,6 +446,7 @@ body {
   display: flex;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
 }
 .user-table-container .user-table th .header-with-icon img {
   width: 16px;
@@ -480,6 +482,74 @@ body {
   background-color: #ffe5e5;
   color: #e4033b;
 }
+.user-table-container .user-table .filter-panel {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 300px;
+  font-family: Arial, sans-serif;
+  position: absolute;
+  top: 50px;
+}
+.user-table-container .user-table .filter-panel .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.user-table-container .user-table .filter-panel .form-group label {
+  display: inline-block;
+  color: #545F7D;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.user-table-container .user-table .filter-panel .form-group input,
+.user-table-container .user-table .filter-panel .form-group select {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #545F7D;
+  outline: none;
+  background-color: #f9fafb;
+}
+.user-table-container .user-table .filter-panel .form-group input::-moz-placeholder {
+  color: #545F7D;
+}
+.user-table-container .user-table .filter-panel .form-group input::placeholder {
+  color: #545F7D;
+}
+.user-table-container .user-table .filter-panel .form-group input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+.user-table-container .user-table .filter-panel .button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.user-table-container .user-table .filter-panel .button-group button {
+  padding: 0.5rem 1.2rem;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  font-family: "Work Sans", sans-serif;
+  cursor: pointer;
+  border: none;
+}
+.user-table-container .user-table .filter-panel .button-group button:hover {
+  opacity: 0.8;
+}
+.user-table-container .user-table .filter-panel .button-group .reset {
+  background-color: #fff;
+  border: 1px solid #545F7D;
+  color: #545F7D;
+}
+.user-table-container .user-table .filter-panel .button-group .filter {
+  background-color: #39cdcc;
+  color: white;
+}
 
 .users-actions {
   background-color: #ffffff;
@@ -494,7 +564,7 @@ body {
   box-shadow: 0 0 0 1px #e1e1e1, 0 8px 16px rgba(0, 0, 0, 0.05);
   position: absolute;
   right: -40px;
-  top: 50px;
+  top: 60px;
   z-index: 2;
 }
 .users-actions button {
@@ -584,6 +654,8 @@ body {
   width: 170px;
   height: 40px;
   border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 @media (max-width: 1200px) {
   .personalDetails-container {
@@ -595,13 +667,13 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 16px;
-  color: #545F7D;
+  color: #545f7d;
 }
 .personalDetails-container .personal-link-container span {
   display: block;
 }
 .personalDetails-container .personal-link-container a {
-  color: #545F7D;
+  color: #545f7d;
 }
 .personalDetails-container .personal-heading-button-container {
   display: flex;
@@ -609,7 +681,7 @@ body {
   align-items: center;
 }
 .personalDetails-container .personal-heading-button-container h3 {
-  color: #213F7D;
+  color: #213f7d;
   font-weight: 500;
 }
 .personalDetails-container .personal-heading-button-container .button-container {
@@ -622,12 +694,12 @@ body {
   }
 }
 .personalDetails-container .personal-heading-button-container .button-container button:nth-child(1) {
-  border: 1px solid #E4033B;
-  color: #E4033B;
+  border: 1px solid #e4033b;
+  color: #e4033b;
 }
 .personalDetails-container .personal-heading-button-container .button-container button:nth-child(2) {
-  border: 1px solid #39CDCC;
-  color: #39CDCC;
+  border: 1px solid #39cdcc;
+  color: #39cdcc;
 }
 .personalDetails-container .personal-profile-container {
   display: flex;
@@ -681,7 +753,7 @@ body {
 }
 .personalDetails-container .personal-profile-container .personal-info-container .personal-amount span:nth-child(2) {
   display: block;
-  color: #213F7D;
+  color: #213f7d;
   font-size: 12px;
   font-weight: 400;
 }
@@ -697,10 +769,10 @@ body {
   font-size: 16px;
 }
 .personalDetails-container .personal-profile-container .li-container li .active {
-  color: #39CDCC;
+  color: #39cdcc;
 }
 .personalDetails-container .personal-profile-container .li-container li:has(.active) {
-  border-bottom: 2px solid #39CDCC;
+  border-bottom: 2px solid #39cdcc;
 }
 
 .personal-details {
@@ -718,7 +790,7 @@ body {
 .personal-details .section h2 {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
-  color: #213F7D;
+  color: #213f7d;
   font-weight: 600;
 }
 .personal-details .section .grid {
@@ -729,14 +801,14 @@ body {
 .personal-details .section .grid div {
   padding: 1rem;
   border-radius: 6px;
-  color: #545F7D;
+  color: #545f7d;
   font-weight: 500;
   font-size: 16px;
 }
 .personal-details .section .grid div strong {
   display: block;
   font-weight: 400;
-  color: #545F7D;
+  color: #545f7d;
   font-size: 12px;
   text-transform: uppercase;
   margin-bottom: 0.3rem;
