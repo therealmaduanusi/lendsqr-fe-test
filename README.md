@@ -1,54 +1,89 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Lendsqr FE Test
 
-Currently, two official plugins are available:
+This is a frontend test project built with **React**, **TypeScript**, and **Vite**. It demonstrates a user management dashboard with routing, user details, and filtering functionality.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔐 User authentication mock (login screen)
+- 🧭 Dashboard navigation
+- 👥 User listing and detailed view
+- 🔍 Filter and search users
+- ⚡ Fast development with Vite
+- 🛠️ Modular components and SCSS styling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **React Router DOM**
+- **Axios**
+- **SCSS & CSS Modules**
+- **ESLint** for linting
+- **date-fns** for date formatting
+
+## 🗂️ Project Structure
+
+```
+src/
+├── assets/            # Images, icons, fonts
+├── components/        # Reusable React components
+├── pages/             # Page-level components (Dashboard, Login)
+├── styles/            # Global styles (CSS & SCSS)
+├── App.tsx            # App wrapper
+├── main.tsx           # Entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Script       | Description                         |
+|--------------|-------------------------------------|
+| `npm run dev` | Starts the development server       |
+| `npm run build` | Builds the project for production |
+| `npm run preview` | Previews the production build   |
+| `npm run lint` | Lints the codebase using ESLint    |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## 🔧 Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/lendsqr-fe-test.git
+cd lendsqr-fe-test
 ```
+
+2. **Install dependencies:**
+
+```bash
+npm install
+```
+
+3. **Run the development server:**
+
+```bash
+npm run dev
+```
+
+> The app will be available at `http://localhost:5173`.
+
+## 🌐 Deployment
+
+This project uses a `vercel.json` config file for deployment with [Vercel](https://vercel.com/). You can deploy directly by importing the repository to Vercel.
+
+## 📁 Public API & Assets
+
+- Static assets like logos and icons are located in the `public/` directory.
+- Mock user data is available at: `public/api/users-api.json`
+
+## 🧹 Linting
+
+To ensure code quality and consistency:
+
+```bash
+npm run lint
+```
+
+## 📄 License
+
+This project is for educational and testing purposes only.
