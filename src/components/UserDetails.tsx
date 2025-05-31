@@ -7,7 +7,7 @@ import viewDetailsIcon from "../assets/viewdetails.svg";
 import blacklistUserIcon from "../assets/blacklistuser.svg";
 import activateUserIcon from "../assets/activateuser.svg";
 import Loader from "./Loader.tsx";
-import FilterForm from "./FilterForm.tsx";
+import Filterform from "./Filterform.tsx";
 
 type UserDetails = {
   id: number;
@@ -119,7 +119,7 @@ const UserTable = ({
                 onSetShowUserDetailMenu={setShowUserDetailMenu}
               />
             ))}
-            {showFilterForm && <FilterForm />}
+            {showFilterForm && <Filterform />}
           </tbody>
         </table>
       </div>

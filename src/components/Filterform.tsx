@@ -1,4 +1,4 @@
-const UserFilterPanel = () => {
+const Filterform = () => {
   return (
     <div className="filter-panel">
       <form>
@@ -45,4 +45,4 @@ const UserFilterPanel = () => {
   );
 };
 
-export default UserFilterPanel;
+export default Filterform;
