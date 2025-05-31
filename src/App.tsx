@@ -52,7 +52,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DashBoard onShowDashboard={setShowDashboard} />}>
             <Route index element={<p style={{textAlign: 'center', width: '70%', alignSelf: 'center'}}>Hello</p>}></Route>
-            <Route path="/user" element={<PersonalDetails />}>
+            <Route path="/users" element={<PersonalDetails />}>
               <Route index element={<UserInfo />}></Route>
               <Route path="general" element={<UserInfo />}></Route>
               <Route path="document" element={<p>No Data in 'Document'</p>}></Route>

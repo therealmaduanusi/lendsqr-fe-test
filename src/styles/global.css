@@ -4,12 +4,8 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "AvenirNextLTPro";
-  src: url("../assets/fonts/Avenir Next LT Pro Regular.otf"), url("../assets/fonts/Avenir Next LT Pro Bold.otf") format("opentype");
-}
 body {
-  background-color: rgba(84, 95, 125, 0.1490196078);
+  background-color: #FBFBFB;
   line-height: 1.6;
 }
 
@@ -17,12 +13,11 @@ body {
   display: flex;
   justify-content: space-between;
   position: relative;
-  font-family: "AvenirNextLTPro", sans-serif;
 }
 .login-page .login-image-container {
   height: 100dvh;
   padding: 4rem;
-  background-color: rgba(255, 255, 255, 0.1803921569);
+  background-color: rgba(255, 255, 255, 0.15);
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -47,6 +42,7 @@ body {
 }
 .login-page .login-form-container .login-form {
   height: 100%;
+  font-family: "Avenir Next LT Pro", sans-serif;
 }
 .login-page .login-form-container .login-form .login-form-header {
   margin-bottom: 2rem;
@@ -55,10 +51,12 @@ body {
   color: #213f7d;
   font-weight: 700;
   font-size: 40px;
-  letter-spacing: -4%;
+  letter-spacing: -1.6px;
 }
 .login-page .login-form-container .login-form p {
   color: #545f7d;
+  font-size: 20px;
+  font-weight: 400;
 }
 .login-page .login-form-container .login-form input {
   display: block;
@@ -66,8 +64,9 @@ body {
   height: 50px;
   padding-left: 1rem;
   border-radius: 5px;
-  border: 1px solid #545f7d;
+  border: 2px solid rgba(84, 95, 125, 0.168627451);
   outline: none;
+  font-family: "Avenir Next LT Pro", sans-serif;
 }
 .login-page .login-form-container .login-form label {
   display: block;
@@ -85,7 +84,7 @@ body {
   color: #39cdcc;
   text-transform: uppercase;
   font-weight: 600;
-  letter-spacing: 10%;
+  letter-spacing: 1.2px;
   font-size: 12px;
 }
 .login-page .login-form-container .login-form .forgot-password:hover {
@@ -114,9 +113,10 @@ body {
   border-radius: 8px;
   border: none;
   font-size: 1.2rem;
-  font-weight: 600;
   cursor: pointer;
   margin-top: 2rem;
+  font-family: "Avenir Next LT Pro", sans-serif;
+  font-weight: 600;
 }
 .login-page .login-form-container .login-form button:hover {
   background-color: #36b8b0;
@@ -325,7 +325,8 @@ body {
 }
 .navigation .navigation-list .navigation-customers:has(.active) {
   border-left: 3px solid #39cdcc;
-  background-color: rgba(55, 205, 205, 0.147);
+  padding: 10px 10px;
+  background-color: rgba(55, 205, 205, 0.06);
 }
 .navigation .navigation-footer {
   padding-left: 10px;
@@ -432,7 +433,7 @@ body {
   padding: 1rem;
   width: 100%;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
   .user-table-container {
     overflow-x: auto;
   }
@@ -467,6 +468,7 @@ body {
   display: flex;
   gap: 10px;
   align-items: center;
+  white-space: nowrap;
   cursor: pointer;
 }
 .user-table-container .user-table th .header-with-icon img {
@@ -528,7 +530,7 @@ body {
 .user-table-container .user-table .filter-panel .form-group input,
 .user-table-container .user-table .filter-panel .form-group select {
   padding: 0.6rem 0.75rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid rgba(33, 64, 125, 0.2);
   border-radius: 8px;
   font-size: 0.9rem;
   color: #545f7d;
@@ -536,9 +538,11 @@ body {
   background-color: #f9fafb;
 }
 .user-table-container .user-table .filter-panel .form-group input::-moz-placeholder {
+  font-family: "Work Sans", sans-serif;
   color: #545f7d;
 }
 .user-table-container .user-table .filter-panel .form-group input::placeholder {
+  font-family: "Work Sans", sans-serif;
   color: #545f7d;
 }
 .user-table-container .user-table .filter-panel .form-group input[type=date]::-webkit-calendar-picker-indicator {
@@ -759,9 +763,12 @@ body {
 .personalDetails-container .personal-profile-container .personal-info-container .personal-ratings {
   font-size: 14px;
   color: #545f7d;
-  border-left: 1px solid #545f7d;
-  border-right: 1px solid #545f7d;
+  border-left: 1px solid rgba(84, 95, 125, 0.2);
+  border-right: 1px solid rgba(84, 95, 125, 0.2);
   padding: 0 2rem;
+}
+.personalDetails-container .personal-profile-container .personal-info-container .personal-ratings img:nth-child(2) {
+  margin: 0 4px;
 }
 .personalDetails-container .personal-profile-container .personal-info-container .personal-ratings span {
   text-align: center;

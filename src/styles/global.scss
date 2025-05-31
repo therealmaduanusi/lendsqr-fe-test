@@ -4,23 +4,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-@font-face {
-  font-family: "AvenirNextLTPro";
-  src: url("../assets/fonts/Avenir\ Next\ LT\ Pro\ Regular.otf"),
-    url("../assets/fonts/Avenir\ Next\ LT\ Pro\ Bold.otf") format("opentype");
-}
 // Body styles
 body {
-  background-color: #545f7d26;
-  // color: #333;
+  background-color: #FBFBFB;
   line-height: 1.6;
 }
-
-// Images
-// img {
-//   max-width: 100%;
-//   height: auto;
-// }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // login page styles
@@ -28,11 +16,10 @@ body {
   display: flex;
   justify-content: space-between;
   position: relative;
-  font-family: "AvenirNextLTPro", sans-serif;
   .login-image-container {
     height: 100dvh;
     padding: 4rem;
-    background-color: #ffffff2e; // Semi-transparent background
+    background-color: rgba(255, 255, 255, 0.15); // Semi-transparent background
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -61,6 +48,7 @@ body {
 
     .login-form {
       height: 100%;
+      font-family: "Avenir Next LT Pro", sans-serif;
       .login-form-header {
         margin-bottom: 2rem;
       }
@@ -69,10 +57,12 @@ body {
         color: #213f7d;
         font-weight: 700;
         font-size: 40px;
-        letter-spacing: -4%;
+        letter-spacing:  calc(40px * (-4 / 100));
       }
       p {
         color: #545f7d;
+        font-size: 20px;
+        font-weight: 400;
       }
 
       input {
@@ -81,8 +71,9 @@ body {
         height: 50px;
         padding-left: 1rem;
         border-radius: 5px;
-        border: 1px solid #545f7d;
+        border: 2px solid #545f7d2b;
         outline: none;
+        font-family: "Avenir Next LT Pro", sans-serif;
       }
       label {
         display: block;
@@ -98,7 +89,7 @@ body {
         color: #39cdcc;
         text-transform: uppercase;
         font-weight: 600;
-        letter-spacing: 10%;
+        letter-spacing: calc(12px * (10 / 100));
         font-size: 12px;
       }
       .forgot-password:hover {
@@ -130,9 +121,10 @@ body {
         border-radius: 8px;
         border: none;
         font-size: 1.2rem;
-        font-weight: 600;
         cursor: pointer;
         margin-top: 2rem;
+        font-family: "Avenir Next LT Pro", sans-serif;
+        font-weight: 600;
       }
       button:hover {
         background-color: #36b8b0;
@@ -354,7 +346,8 @@ body {
     }
     .navigation-customers:has(.active) {
       border-left: 3px solid #39cdcc;
-      background-color: rgba(55, 205, 205, 0.147);
+      padding: 10px 10px;
+      background-color: rgba(55, 205, 205, 0.06);
     }
   }
   .navigation-footer {
@@ -471,7 +464,7 @@ body {
   border-radius: 4px;
   padding: 1rem;
   width: 100%;
-  @media (max-width: 1200px) {
+  @media (max-width: 1350px) {
     overflow-x: auto;
   }
 
@@ -509,6 +502,7 @@ body {
         display: flex;
         gap: 10px;
         align-items: center;
+        white-space: nowrap;
         cursor: pointer;
         img {
           width: 16px;
@@ -578,7 +572,7 @@ body {
         input,
         select {
           padding: 0.6rem 0.75rem;
-          border: 1px solid #d1d5db;
+          border: 1px solid rgba(33, 64, 125, 0.2);
           border-radius: 8px;
           font-size: 0.9rem;
           color: #545f7d;
@@ -586,6 +580,7 @@ body {
           background-color: #f9fafb;
         }
         input::placeholder {
+          font-family: "Work Sans", sans-serif;
           color: #545f7d;
         }
 
@@ -816,9 +811,12 @@ body {
       .personal-ratings {
         font-size: 14px;
         color: #545f7d;
-        border-left: 1px solid #545f7d;
-        border-right: 1px solid #545f7d;
+        border-left: 1px solid rgba(84, 95, 125, 0.2);
+        border-right: 1px solid rgba(84, 95, 125, 0.2);
         padding: 0 2rem;
+        img:nth-child(2) {
+          margin: 0 4px;
+        }
         span {
           text-align: center;
         }

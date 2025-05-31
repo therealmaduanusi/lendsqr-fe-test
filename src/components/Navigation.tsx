@@ -6,7 +6,7 @@ import { useState } from "react";
 
 // This component renders the navigation sidebar for the application
 const customersLists: { id: number; name: string; img: string }[] = [
-  { id: 1, name: "User", img: "/images/user.svg" },
+  { id: 1, name: "Users", img: "/images/user.svg" },
   { id: 2, name: "Guarantors", img: "/images/guarantors.svg" },
   { id: 3, name: "Loans", img: "/images/loans.svg" },
   { id: 4, name: "Decision Models", img: "/images/decision_models.svg" },

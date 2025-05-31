@@ -42,28 +42,27 @@ function PersonalDetails() {
             <div className='personal-ul-container'>
                 <ul className='li-container'>
                     <li>
-                        <NavLink to='general'>General Details</NavLink>
+                        <NavLink to='' end className={({ isActive }) => isActive ? 'active' : ''}>General Details</NavLink>
                     </li>
                     <li>
-                        <NavLink to='document'>Documents</NavLink>
+                        <NavLink to='document' className={({ isActive }) => isActive ? 'active' : ''}>Documents</NavLink>
                     </li>
                     <li>
-                        <NavLink to='bank'>Bank Details</NavLink>
+                        <NavLink to='bank' className={({ isActive }) => isActive ? 'active' : ''}>Bank Details</NavLink>
                     </li>
                     <li>
-                        <NavLink to='loan'>Loans</NavLink>
+                        <NavLink to='loan' className={({ isActive }) => isActive ? 'active' : ''}>Loans</NavLink>
                     </li>
                     <li>
-                        <NavLink to='savings'>Savings</NavLink>
+                        <NavLink to='savings' className={({ isActive }) => isActive ? 'active' : ''}>Savings</NavLink>
                     </li>
                     <li>
-                        <NavLink to='app'>App and System</NavLink>
+                        <NavLink to='app' className={({ isActive }) => isActive ? 'active' : ''}>App and System</NavLink>
                     </li>
                 </ul>
             </div>
         </div>
         <Outlet />
-        {/* <div></div> */}
     </div>
   )
 }

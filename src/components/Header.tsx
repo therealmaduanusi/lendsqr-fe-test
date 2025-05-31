@@ -9,7 +9,9 @@ function Header() {
   return (
     <header className="header">
       <div className="header-logo">
-        <img src={logo} alt="Logo" />
+        <Link to='/'>
+          <img src={logo} alt="Logo" />
+        </Link>
       </div>
       <div className="header-search">
         <input type="text" className="header-search-input" placeholder="search for anything" />
