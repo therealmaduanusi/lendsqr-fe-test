@@ -55,7 +55,7 @@ function Navigation({onShowDashboard}: { onShowDashboard: (show: boolean) => voi
           </li>
           <li className="navigation-dashboard">
             <img src={homeImage} alt="Dashboard" />
-            <Link to="/dashboard">
+            <Link to="#">
               <p>Dashboard</p>
             </Link>
           </li>

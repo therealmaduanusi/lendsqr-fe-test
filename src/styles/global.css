@@ -141,7 +141,7 @@ body {
     position: static;
   }
   .login-page .login-form-container {
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     padding: 2rem;
   }
@@ -248,7 +248,9 @@ body {
 
 @media (max-width: 1200px) {
   .show {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .hide {
     display: none;
@@ -259,9 +261,6 @@ body {
   font-family: "Work Sans", sans-serif;
   width: 20%;
   padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 @media (max-width: 1200px) {
   .navigation {
@@ -332,7 +331,7 @@ body {
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #213F7D;
+  color: #213f7d;
   border-top: 1px solid rgba(33, 64, 125, 0.1137254902);
 }
 .navigation .navigation-footer div a {
@@ -521,7 +520,7 @@ body {
 }
 .user-table-container .user-table .filter-panel .form-group label {
   display: inline-block;
-  color: #545F7D;
+  color: #545f7d;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 0.4rem;
@@ -532,15 +531,15 @@ body {
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 0.9rem;
-  color: #545F7D;
+  color: #545f7d;
   outline: none;
   background-color: #f9fafb;
 }
 .user-table-container .user-table .filter-panel .form-group input::-moz-placeholder {
-  color: #545F7D;
+  color: #545f7d;
 }
 .user-table-container .user-table .filter-panel .form-group input::placeholder {
-  color: #545F7D;
+  color: #545f7d;
 }
 .user-table-container .user-table .filter-panel .form-group input[type=date]::-webkit-calendar-picker-indicator {
   filter: invert(0.5);
@@ -565,8 +564,8 @@ body {
 }
 .user-table-container .user-table .filter-panel .button-group .reset {
   background-color: #fff;
-  border: 1px solid #545F7D;
-  color: #545F7D;
+  border: 1px solid #545f7d;
+  color: #545f7d;
 }
 .user-table-container .user-table .filter-panel .button-group .filter {
   background-color: #39cdcc;
