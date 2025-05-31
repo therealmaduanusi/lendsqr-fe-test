@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import briefcase from "../assets/briefcase1.svg";
 import homeImage from "../assets/home1.svg";
+import { useState } from "react";
 
 // This component renders the navigation sidebar for the application
 const customersLists: { id: number; name: string; img: string }[] = [
@@ -32,38 +33,46 @@ const settingsLists: { id: number; name: string; img: string }[] = [
 ];
 
 function Navigation() {
+  const [ showNavigation, setShowNavigation ] = useState(false)
   return (
-    <nav className="navigation">
-      <ul className="navigation-list">
-        <li className="navigation-select">
-          <img src={briefcase} alt="Select Organization" />
-          <select name="navigation" id="navigation">
-            <option value="">Switch Organization</option>
-            <option value="about">About</option>
-            <option value="services">Services</option>
-            <option value="contact">Contact</option>
-          </select>
-        </li>
-        <li className="navigation-dashboard">
-          <img src={homeImage} alt="Dashboard" />
-          <Link to="/dashboard">
-            <p>Dashboard</p>
-          </Link>
-        </li>
-        <h3 className="customers-title">Customers</h3>
-        {customersLists.map((customer) => (
-          <CustomersLists key={customer.id} {...customer} />
-        ))}
-        <h3 className="business-title">Business</h3>
-        {businessLists.map((customer) => (
-          <BusinessLists key={customer.id} {...customer} />
-        ))}
-        <h3 className="settings-title">Settings</h3>
-        {settingsLists.map((customer) => (
-          <SettingsLists key={customer.id} {...customer} />
-        ))}
-      </ul>
-    </nav>
+    <>
+      <div onClick={() => setShowNavigation(prev => !prev)} className="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav className={`navigation ${showNavigation ? 'show' : 'hide'}`}>
+        <ul className="navigation-list">
+          <li className="navigation-select">
+            <img src={briefcase} alt="Select Organization" />
+            <select name="navigation" id="navigation">
+              <option value="">Switch Organization</option>
+              <option value="about">About</option>
+              <option value="services">Services</option>
+              <option value="contact">Contact</option>
+            </select>
+          </li>
+          <li className="navigation-dashboard">
+            <img src={homeImage} alt="Dashboard" />
+            <Link to="/dashboard">
+              <p>Dashboard</p>
+            </Link>
+          </li>
+          <h3 className="customers-title">Customers</h3>
+          {customersLists.map((customer) => (
+            <CustomersLists key={customer.id} {...customer} />
+          ))}
+          <h3 className="business-title">Business</h3>
+          {businessLists.map((customer) => (
+            <BusinessLists key={customer.id} {...customer} />
+          ))}
+          <h3 className="settings-title">Settings</h3>
+          {settingsLists.map((customer) => (
+            <SettingsLists key={customer.id} {...customer} />
+          ))}
+        </ul>
+      </nav>
+    </>
   );
 }
 
@@ -77,9 +86,9 @@ const CustomersLists = ({ img, name }: CustomersListsProps) => {
   return (
     <li className="navigation-customers">
       <img src={img} alt={name} />
-      <Link to="#">
+      <NavLink to={name}>
         <span>{name}</span>
-      </Link>
+      </NavLink>
     </li>
   );
 };
@@ -99,7 +108,6 @@ const BusinessLists = ({ img, name }: BusinessListsProps) => {
     </li>
   );
 };
-
 
 type SettingsListsProps = {
   img: string;

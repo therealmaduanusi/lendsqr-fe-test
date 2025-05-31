@@ -2,6 +2,10 @@ import Login from "./pages/Login";
 import { useState } from "react";
 
 import DashBoard from "./pages/Dashboard";
+import { Route, Routes } from "react-router-dom";
+import Users from "./components/Users";
+import PersonalDetails from "./components/PersonalDetails";
+import UserInfo from "./components/UserInfo";
 function App() {
   interface LoginState {
     email: string;
@@ -43,7 +47,27 @@ function App() {
   return (
     <>
       {showDashboard ? (
-        <DashBoard />
+        <Routes>
+          <Route path="/" element={<DashBoard />}>
+            <Route index element={<p style={{textAlign: 'center', width: '70%', alignSelf: 'center'}}>Hello</p>}></Route>
+            <Route path="/User" element={<PersonalDetails />}>
+              <Route index element={<UserInfo />}></Route>
+              <Route path="general" element={<UserInfo />}></Route>
+              <Route path="document" element={<p>No Data in 'Document'</p>}></Route>
+              <Route path="bank" element={<p>No Data in 'Bank'</p>}></Route>
+              <Route path="loan" element={<p>No Data in 'Loan'</p>}></Route>
+              <Route path="savings" element={<p>No Data in 'Savings'</p>}></Route>
+              <Route path="app" element={<p>No Data in 'App and System'</p>}></Route>
+            </Route>
+            <Route path="/Guarantors" element={<Users />}></Route>
+            <Route path="/Loans" element={<p>Loan No Data found</p>}></Route>
+            <Route path="/Decision Models" element={<p>Decision Models No Data Found</p>}></Route>
+            <Route path="/Savings" element={<p>No Data Found</p>}></Route>
+            <Route path="/Loan Request" element={<p>Decision Models No Data Found</p>}></Route>
+            <Route path="/Whitelist" element={<p>Whitelist No Data Found</p>}></Route>
+            <Route path="/Karma" element={<p>Karma No Data Found</p>}></Route>
+          </Route>
+        </Routes>
       ) : (
         <Login login={login} onChange={handleChange} onSubmit={handleSubmit} />
       )}

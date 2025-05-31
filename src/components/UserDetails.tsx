@@ -2,6 +2,10 @@ import axios from "axios";
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import filterImage from "../assets/filter-results-button.svg";
+import userDetailMenuImage from "../assets/userdetailmenu.svg";
+import viewDetailsIcon from "../assets/viewdetails.svg";
+import blacklistUserIcon from "../assets/blacklistuser.svg";
+import activateUserIcon from "../assets/activateuser.svg";
 import Loader from "./Loader.tsx";
 function UsersDetails() {
   const [usersDetails, setUsersDetails] = useState<object | null>(null);
@@ -48,12 +52,6 @@ function UsersDetails() {
   }, []);
   // console.log('usersDetails', usersDetails);
 
-  //  if (!usersDetails) {
-  //   // Initialize usersDetails with an empty object if it's null
-  //   // setUsersDetails({});
-  //   return;
-  // }
-
   return (
     <div className="user-details">
       {loading ? (
@@ -77,6 +75,9 @@ type UserDetails = {
   status: string;
 };
 const UserTable = ({ storedUsersDetails }: { storedUsersDetails: [] }) => {
+  const [showUserDetailMenu, setShowUserDetailMenu] = useState<number | null>(
+    null
+  );
   return (
     <>
       <div className="user-table-container">
@@ -109,7 +110,7 @@ const UserTable = ({ storedUsersDetails }: { storedUsersDetails: [] }) => {
               </th>
               <th>
                 <div className="header-with-icon">
-                  Phone Number
+                  <span>Phone Number</span>
                   <span>
                     <img src={filterImage} alt="filter" />
                   </span>
@@ -131,11 +132,16 @@ const UserTable = ({ storedUsersDetails }: { storedUsersDetails: [] }) => {
                   </span>
                 </div>
               </th>
+              <th></th> {/* For the dots */}
             </tr>
           </thead>
           <tbody>
             {storedUsersDetails.slice(0, 9).map((user: UserDetails) => (
-              <Tablerow user={user} />
+              <Tablerow
+                user={user}
+                showUserDetailMenu={showUserDetailMenu}
+                onSetShowUserDetailMenu={setShowUserDetailMenu}
+              />
             ))}
           </tbody>
         </table>
@@ -167,11 +173,23 @@ const UserTable = ({ storedUsersDetails }: { storedUsersDetails: [] }) => {
   );
 };
 
-const Tablerow = ({ user }: { user: UserDetails }) => {
+const Tablerow = ({
+  user,
+  showUserDetailMenu,
+  onSetShowUserDetailMenu,
+}: {
+  user: UserDetails;
+  showUserDetailMenu: number | null;
+  onSetShowUserDetailMenu: () => void;
+}) => {
   console.log(user);
   const formatDate = (isoDate: string): string => {
     return format(new Date(isoDate), "MMM d, yyyy h:mmaaa");
   };
+
+  function showAction(user: number | null) {
+    onSetShowUserDetailMenu(user);
+  }
   return (
     <tr className="user-table-row">
       <td>{user.organization}</td>
@@ -182,7 +200,35 @@ const Tablerow = ({ user }: { user: UserDetails }) => {
       <td>
         <span className={`status ${user.status}`}>{user.status}</span>
       </td>
+      <td>
+        <img
+          onClick={() => {
+            showAction(user.id);
+          }}
+          src={userDetailMenuImage}
+          alt="detailMenu"
+        />
+      </td>
+      {showUserDetailMenu === user.id ? <UsersActions /> : ""}
     </tr>
+  );
+};
+
+const UsersActions = () => {
+  return (
+    <div className="users-actions">
+      <button className="action-button">
+        <img src={viewDetailsIcon} alt="View Details" /> View Details
+      </button>
+      <button className="action-button">
+        <img src={blacklistUserIcon} alt="Blacklist User" />
+        Blacklist User
+      </button>
+      <button className="action-button">
+        <img src={activateUserIcon} alt="Activate User" />
+        Activate User
+      </button>
+    </div>
   );
 };
 

@@ -1,14 +1,15 @@
+import { Outlet } from "react-router-dom"
 import Header from "../components/Header"
 import Navigation from "../components/Navigation"
-import Users from "../components/Users.tsx"
+// import Users from "../components/Users.tsx"
 
 function DashBoard() {
   return (
     <>
       <Header />
-      <section style={{ display: "flex" }}>
+      <section style={{ display: "flex", position: 'relative' }}>
         <Navigation />
-        <Users />
+        <Outlet />
       </section>
     </>
   )
