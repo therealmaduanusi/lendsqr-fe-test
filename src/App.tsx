@@ -69,6 +69,7 @@ function App() {
             <Route path="/whitelist" element={<p>Whitelist No Data Found</p>}></Route>
             <Route path="/karma" element={<p>Karma No Data Found</p>}></Route>
           </Route>
+          <Route path="*" element={<p>page not found <a href="https://victor-maduanusi-lendsqr-fe-test.vercel.app/">Go Home</a></p>}></Route>
         </Routes>
       ) : (
         <Login login={login} onChange={handleChange} onSubmit={handleSubmit} />
